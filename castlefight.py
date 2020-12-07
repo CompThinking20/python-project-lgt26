@@ -158,12 +158,12 @@ def main():
         choices_made = 0
         while(choices_made != 4):
             unit_choice = 0
-            print("PLAYER HEALTH: " + str(player.getHealth()) + " ------------- " + "COMPUTER HEALTH: " + str(computer.getHealth()))
+            print("\nPLAYER HEALTH: " + str(player.getHealth()) + " ------------- " + "COMPUTER HEALTH: " + str(computer.getHealth()))
             while((unit_choice != 1) and (unit_choice != 2) and (unit_choice != 3)):
                 print("\n\nAVAILABLE UNITS (enter 1, 2, or 3)\n")
-                print("1. " + player.faction.rock.getName())
-                print("2. " + player.faction.paper.getName())
-                print("3. " + player.faction.scissor.getName())
+                print("1. " + player.faction.rock.getName() + " (Rock)")
+                print("2. " + player.faction.paper.getName() + " (Paper)")
+                print("3. " + player.faction.scissor.getName() + " (Scissor)")
                 unit_choice = int(input("Pick unit #" + str(choices_made+1) + ": "))
             if unit_choice == 1:
                 player_side[choices_made] = Unit(player.faction.rock.getName(), player.faction.rock.getRole())
@@ -186,7 +186,7 @@ def main():
         print_board(player, computer, player_side, computer_side)
         
         print("\nFIGHT!")
-        time.sleep(1)
+        time.sleep(2)
 
         #combat is handled here
         #starts at 0, adds 1 if the player wins a fight, and takes away 1 if the player loses a fight
@@ -196,7 +196,7 @@ def main():
         combat_result = 0
         for x in range(4):
             combat_result = combat_result + combat(player_side[x], computer_side[x])
-            time.sleep(2)
+            time.sleep(3)
         if combat_result > 0:
             print("\n" + player.getName() + " wins the round and deals " + str(combat_result) + " damage!")
             computer.health = computer.health - combat_result
@@ -205,7 +205,7 @@ def main():
             player.health = player.health + combat_result
         elif combat_result == 0:
             print("\nTie round! Nobody takes any damage!")
-        time.sleep(2)
+        time.sleep(3)
 
         #check for gameover
         #there cannot be a tie so no need to check for that
@@ -221,5 +221,5 @@ def main():
         
         
         
-        
+main()
     
