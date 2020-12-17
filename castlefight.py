@@ -117,7 +117,9 @@ def main():
         print("2. Orc\n")
         print("3. Elven\n")
         print("4. Undead\n")
-        choice = int(input("Pick a faction, enter a number (1 - 4): ")) 
+        choice = input("Pick a faction, enter a number (1 - 4): ")
+        if not choice.isdigit() or int(choice) < 1 or int(choice) > 4:
+            print("Please enter a valid number!")
     if choice == 1:
         pFaction = init_human()
     elif choice == 2:
@@ -164,7 +166,9 @@ def main():
                 print("1. " + player.faction.rock.getName() + " (Rock)")
                 print("2. " + player.faction.paper.getName() + " (Paper)")
                 print("3. " + player.faction.scissor.getName() + " (Scissor)")
-                unit_choice = int(input("Pick unit #" + str(choices_made+1) + ": "))
+                unit_choice = input("Pick unit #" + str(choices_made+1) + ": ")
+                if not unit_choice.isdigit() or unit_choice < 1 or unit_choice > 4:
+                    print("Please enter a valid number!")
             if unit_choice == 1:
                 player_side[choices_made] = Unit(player.faction.rock.getName(), player.faction.rock.getRole())
             elif unit_choice == 2:
